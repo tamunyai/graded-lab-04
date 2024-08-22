@@ -37,7 +37,7 @@ function FoodItemsCarousel({ list }) {
                         }}
                         onPress={() => { }}
                     >
-                        <View style={styles.card}>
+                        <View style={[styles.card, { borderColor: theme.text }]}>
                             <ButtonIcon style={styles.addToCart} icon="plus-circle" onPress={() => addToCart(item)} />
                             <View style={styles.cardImage}>
                                 <Image
@@ -46,9 +46,9 @@ function FoodItemsCarousel({ list }) {
                                 />
                             </View>
                             <View style={styles.cardText}>
-                            <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
-                            <Text style={[styles.description, { color: theme.text }]}>{item.description}</Text>
-                            <Text style={[styles.price, { color: theme.text }]}>ZAR {item.price.toFixed(2)}</Text>
+                                <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
+                                <Text style={[styles.description, { color: theme.text }]}>{item.description}</Text>
+                                <Text style={[styles.price, { color: theme.text }]}>ZAR {item.price.toFixed(2)}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>

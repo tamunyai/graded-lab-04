@@ -27,7 +27,7 @@ function FoodItemsList({ list }) {
                         style={styles.cardContainer}
                         onPress={() => { }}
                     >
-                        <View style={styles.card}>
+                        <View style={[styles.card, { borderColor: theme.text }]}>
                             <View style={styles.cardImage}>
                                 <Image
                                     style={styles.image}

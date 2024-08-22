@@ -27,7 +27,7 @@ function CartScreen() {
 
   const renderItem = ({ item }) => (
     <View style={styles.cardContainer}>
-      <View style={styles.card}>
+      <View style={[styles.card, { borderColor: theme.text }]}>
         <View style={{ flexDirection: 'row' }}>
           <View style={styles.cardImage}>
             <Image
@@ -38,7 +38,7 @@ function CartScreen() {
           <View style={styles.cardText}>
             <Text style={[styles.name, { color: theme.text }]}>{item.name}</Text>
             <Text style={[styles.price, { color: theme.text }]}>ZAR {item.price.toFixed(2)}</Text>
-            <TouchableOpacity style={[styles.removeButton, { backgroundColor: theme.background }]} onPress={() => { removeFromCart(item.id) }}>
+            <TouchableOpacity style={[styles.removeButton, { backgroundColor: theme.background, borderColor: theme.text }]} onPress={() => { removeFromCart(item.id) }}>
               <Text style={[styles.removeButtonText, { color: theme.secondary }]}>Remove</Text>
             </TouchableOpacity>
           </View>
@@ -55,7 +55,7 @@ function CartScreen() {
   const totalCost = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <SafeAreaView style={[styles.container, {backgroundColor: theme.background}]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <MainHeader
         title="Cart"
         icon='heart-o'
@@ -69,7 +69,7 @@ function CartScreen() {
       />
       <View style={styles.footer}>
         <Text style={[styles.footerText, { color: theme.text }]}>Total: ZAR {totalCost.toFixed(2)}</Text>
-        <TouchableOpacity style={[styles.button, { backgroundColor: theme.background }]} onPress={clearCart}>
+        <TouchableOpacity style={[styles.button, { backgroundColor: theme.background, borderColor: theme.text }]} onPress={clearCart}>
           <Text style={[styles.buttonText, { color: theme.secondary }]}>Checkout</Text>
         </TouchableOpacity>
       </View>
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.medium,
     paddingBottom: Spacing.large / 1.5,
     alignItems: 'center',
+    borderWidth: Dimensions.borderWidth,
   },
   buttonText: {
     fontSize: Dimensions.heading3FontSize,
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     alignItems: 'center',
     marginTop: Spacing.small,
+    borderWidth: Dimensions.borderWidth,
   },
   removeButtonText: {
     fontSize: Dimensions.captionFontSize,
